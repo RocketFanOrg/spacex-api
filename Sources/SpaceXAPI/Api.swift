@@ -1,7 +1,7 @@
 import Foundation
 
 final public class Api {
-    private let baseURL = URL(string: "https://api.spacexdata.com/v3")!
+    private let baseURL = URL(string: "https://api.spacexdata.com/v4")!
     private let urlSession: NetworkSession
     private var sessionTask: URLSessionTask?
 
