@@ -1,7 +1,6 @@
 import Foundation
 
 final public class Api {
-    private let baseURL = URL(string: "https://api.spacexdata.com/v4")!
     private let urlSession: NetworkSession
     private var sessionTask: URLSessionTask?
 
@@ -68,7 +67,7 @@ private extension Api {
     }
 
     private func buildURL(for endpoint: Endpoint, using options: Options?) -> URL {
-        let url = baseURL.appendingPathComponent(endpoint.path)
+        let url = endpoint.url.appendingPathComponent(endpoint.path)
 
         guard let options = options else { return url }
 
