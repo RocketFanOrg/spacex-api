@@ -11,7 +11,7 @@ final public class Api {
 }
 
 extension Api {
-    func get<Model: Codable>(endpoint: Endpoint, completion: @escaping (Result<Model, Error>) -> Void) {
+    public func get<Model: Codable>(endpoint: Endpoint, completion: @escaping (Result<Model, Error>) -> Void) {
         sessionTask = get(endpoint) { (result) in
             do {
 
