@@ -67,14 +67,12 @@ private extension SpaceXAPI {
     }
 
     private func buildURL(for endpoint: Endpoint, using options: Options?) -> URL {
-        let url = endpoint.url.appendingPathComponent(endpoint.path)
+        guard let options = options else { return endpoint.url }
 
-        guard let options = options else { return url }
-
-        var components = URLComponents(url: url, resolvingAgainstBaseURL: false)
+        var components = URLComponents(url: endpoint.url, resolvingAgainstBaseURL: false)
         components?.queryItems = options.queryItems
 
-        return components?.url ?? url
+        return components?.url ?? endpoint.url
     }
 }
 
