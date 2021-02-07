@@ -62,7 +62,7 @@ private extension SpaceXAPI {
 
             completion(Result.success(data))
         }
-        
+        sessionTask.resume()
         return sessionTask
     }
 
