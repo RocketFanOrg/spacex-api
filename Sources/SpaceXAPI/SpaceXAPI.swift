@@ -1,15 +1,15 @@
 import Foundation
 
-final public class Api {
+final public class SpaceXAPI {
     private let urlSession: NetworkSession
     private var sessionTask: URLSessionTask?
 
-    public init(urlSession: NetworkSession) {
+    public init(urlSession: NetworkSession = URLSession(configuration: .default)) {
         self.urlSession = urlSession
     }
 }
 
-extension Api {
+extension SpaceXAPI {
     public func get<Model: Codable>(endpoint: Endpoint, completion: @escaping (Result<Model, Error>) -> Void) {
         sessionTask = get(endpoint) { (result) in
             do {
@@ -32,7 +32,7 @@ extension Api {
     }
 }
 
-private extension Api {
+private extension SpaceXAPI {
     private func get(_ endpoint: Endpoint,
                      options: Options? = nil,
                      completion: @escaping (Result<Data, Error>) -> Void) -> URLSessionTask {
