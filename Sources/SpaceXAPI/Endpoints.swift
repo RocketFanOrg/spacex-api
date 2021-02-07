@@ -1,11 +1,11 @@
 import Foundation
 
-struct Endpoint {
+public struct Endpoint {
     var path: String
     var queryItems: [URLQueryItem] = []
 }
 
-extension Endpoint {
+public extension Endpoint {
     var url: URL {
         var components = URLComponents()
         components.scheme = "https"
